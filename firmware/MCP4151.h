@@ -1,11 +1,11 @@
 /* 
- * Arduino library for controlling the MCP413X/415X/423X/425X digital potentiometer
+ * Arduino library for controlling the MCP4151/415X/423X/425X digital potentiometer
  * 
  * Author: Caspar Friedrich
  */
 
-#ifndef MCP413X_h
-#define MCP413X_h
+#ifndef MCP4151_h
+#define MCP4151_h
 
 #include <inttypes.h>
 
@@ -21,9 +21,9 @@ const uint8_t COMMAND_INCREASE = 0b00000100;
 const uint8_t COMMAND_DECREASE = 0b00001000;
 const uint8_t COMMAND_READ     = 0b00001100;
 
-class MCP413X {
+class MCP4151 {
 	public:
-		MCP413X(uint8_t spiAddress);
+		MCP4151(uint8_t spiAddress);
 
 		void begin();
 

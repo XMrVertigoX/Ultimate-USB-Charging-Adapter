@@ -3,11 +3,11 @@
  */
 
 #include <SPI.h>
-#include "./MCP413X.h"
+#include "./MCP4151.h"
 
 // Digital potetiometer on GPIO 8 and 9
-MCP413X potiA(8);
-MCP413X potiB(9);
+MCP4151 potiA(8);
+MCP4151 potiB(9);
 
 void setup () {
 	// Start serial connection for debug output
