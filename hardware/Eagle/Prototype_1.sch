@@ -10979,6 +10979,22 @@ Used for things that can directly connect to a USB port, say USB key</descriptio
 <junction x="35.56" y="-33.02"/>
 </segment>
 </net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="MCU" gate="G$1" pin="(PCI0/ICP/CLKO)PB0"/>
+<wire x1="33.02" y1="-20.32" x2="86.36" y2="-20.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="-20.32" x2="86.36" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="POTI1" gate="G$1" pin="CS"/>
+<wire x1="86.36" y1="35.56" x2="129.54" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="MCU" gate="G$1" pin="(PCI1/OC1A/OC1S)PB1"/>
+<pinref part="POTI" gate="G$1" pin="CS"/>
+<wire x1="33.02" y1="-22.86" x2="129.54" y2="-22.86" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
