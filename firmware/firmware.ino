@@ -5,9 +5,9 @@
 #include <SPI.h>
 #include "./MCP4151.h"
 
-// Digital potetiometer on GPIO 8 and 9
-MCP4151 potiA(8);
-MCP4151 potiB(9);
+// Digital potetiometer on GPIO 9 and 10
+MCP4151 potiA(9);
+MCP4151 potiB(10);
 
 void setup () {
 	// Start serial connection for debug output
@@ -20,6 +20,8 @@ void setup () {
 void loop () {
 	potiA.increase();
 	potiB.increase();
+
+        Serial.print("bla");
 
 	delay(100);
 }
