@@ -1,7 +1,7 @@
 /* 
  * Arduino library for controlling the MCP4151/415X/423X/425X digital potentiometer
  * 
- * Author: Caspar Friedrich
+ * @author: Julian Achatzi and Caspar Friedrich
  */
 
 #ifndef MCP4151_h
