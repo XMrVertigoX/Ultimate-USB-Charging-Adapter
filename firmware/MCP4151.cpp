@@ -13,12 +13,12 @@ void MCP4151::begin() {
 
 void MCP4151::decrease(uint8_t wiper) {
 	// Write combined bit masks of wiper address and decrease command
-	write(wiper |= COMMAND_INCREASE);
+	write(wiper |= COMMAND_DECREASE);
 }
 
 void MCP4151::increase(uint8_t wiper) {
 	// Write combined bit masks of wiper address and increase command
-	write(wiper |= COMMAND_DECREASE);
+	write(wiper |= COMMAND_INCREASE);
 }
 
 void MCP4151::write(uint8_t message) {
