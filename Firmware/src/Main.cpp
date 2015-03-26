@@ -39,21 +39,19 @@ int main() {
 	//DDRC = 0xFF; //PORTC as output, used for Slave Selections
 
 	while (true) {
-//		PORTC = 0;
-//		_delay_ms(1000);
-//		//SPI_MasterInit();
-//		SPI_MasterTransmit(0xFF);
-//		PORTC = 255;
-//		_delay_ms(1000);
-//
-//		PORTC = 0;
-//		_delay_ms(1000);
-//		//SPI_MasterInit();
-//		SPI_MasterTransmit(0x00);
-//		PORTC = 255;
-//		_delay_ms(1000);
+		PORTC = 0;
+		_delay_ms(1000);
+		//SPI_MasterInit();
+		SPI_MasterTransmit(0xff);
+		PORTC = 255;
+		_delay_ms(1000);
 
-		SPI_MasterTransmit(0b10101010);
+		PORTC = 0;
+		_delay_ms(1000);
+		//SPI_MasterInit();
+		SPI_MasterTransmit(0x00);
+		PORTC = 255;
+		_delay_ms(1000);
 	}
 
 	// Second infinite loop to prevent system crash
