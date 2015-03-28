@@ -1,19 +1,23 @@
-// SPI master
+/*
+ * Main.c
+ */
 
 #include <inttypes.h>
+
+#include <avr/io.h>
+
 #include <util/delay.h>
 
-#include "lib/MCP4151.h"
-#include "SPI.h"
+#include "lib/UUCA.h"
 
 int main(void) {
-	// Initialize master SPI
-	SPIMasterInit();
+	SPI_Init();
 
 	uint8_t counter = 0;
 
 	while (1) {
-		SPIMasterSend(counter++);
+		SPI_Transmit(PB1, counter++);
+		SPI_Transmit(PB2, counter++);
 	}
 
 	// Second loop to prevent system failures
