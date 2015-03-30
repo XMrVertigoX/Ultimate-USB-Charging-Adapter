@@ -9,7 +9,7 @@
 
 #include <avr/io.h>
 
-void SPI_Init(void) {
+void SPI_Init(uint8_t *ssPins) {
 	// Set MOSI, SCK and SS as output
 	DDRB |= (1 << PB3) | (1 << PB5) | (1 << PB2) | (1 << PB1);
 
