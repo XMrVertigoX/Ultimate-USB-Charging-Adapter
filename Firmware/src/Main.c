@@ -3,12 +3,10 @@
  */
 
 #include <inttypes.h>
-
 #include <avr/io.h>
-
 #include <util/delay.h>
 
-#include "lib/UUCA.h"
+#include "lib/SPI.h"
 
 int main(void) {
 	SPI_Init();

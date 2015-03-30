@@ -10,7 +10,6 @@
 
 #include <inttypes.h>
 
-void SPI_Init(void);
-void SPI_Transmit(uint8_t ss, uint8_t data);
+// Some code...
 
 #endif /* LIB_UUCA_H_ */
