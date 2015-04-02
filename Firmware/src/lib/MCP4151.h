@@ -32,7 +32,7 @@ public:
 	void decrease();
 	void increase();
 	//uint16_t read();
-	uint16_t write(uint16_t data);
+	void write(uint16_t data);
 
 private:
 	uint8_t _ssPin;

@@ -5,20 +5,13 @@
  * Author: Caspar Friedrich
  */
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #ifndef LIB_SPI_H_
 #define LIB_SPI_H_
 
 #include <inttypes.h>
 
-void SPI_Init(uint8_t *ssPins);
-void SPI_Transmit(uint8_t ss, uint8_t data);
+void SPI_Init();
+void SPI_AddSlave(uint8_t ss);
+void SPI_Transmit(uint8_t ss, uint8_t *data, uint8_t quantity);
 
 #endif /* LIB_SPI_H_ */
-
-#ifdef __cplusplus
-}
-#endif

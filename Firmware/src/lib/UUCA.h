@@ -18,7 +18,5 @@ uint16_t input_read(uint8_t device);
 
 // Output functions
 uint16_t output_read(uint8_t device);
-void output_decrease(uint8_t device);
-void output_increase(uint8_t device);
 
 #endif /* LIB_UUCA_H_ */

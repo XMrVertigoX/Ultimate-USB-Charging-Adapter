@@ -19,6 +19,6 @@ void MCP4151::increase() {
 
 }
 
-uint16_t MCP4151::write(uint16_t data) {
-	return 0;
+void MCP4151::write(uint16_t data) {
+
 }

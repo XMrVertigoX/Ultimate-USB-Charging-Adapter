@@ -7,22 +7,23 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "lib/SPI.h"
-
+// Read mode interrupt flag
 bool readMode = false;
-float USB0, USB1;
+
+// ADC values
+uint16_t USB0, USB1;
 
 int main(void) {
-	// Read values from eeprom
+	// TODO: Read values from eeprom
 
 	//SPI_Init();
 
 	while (1) {
 		if (readMode) {
-			// Neue Spannung einlesen, im eeprom und in USB0/USB1 speichern.
+			// TODO: Neue Spannung einlesen, im eeprom und in USB0/USB1 speichern.
 		}
 
-		// Regelkram
+		// TODO: Regelkram
 	}
 
 	// Second loop to prevent system failures
