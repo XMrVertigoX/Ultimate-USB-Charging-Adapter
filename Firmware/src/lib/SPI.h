@@ -1,17 +1,16 @@
 /*
- * SPI.h
+ * SPI.h - SPI controller library for the UUCA
  *
  * Created on: Mar 27, 2015
  * Author: Caspar Friedrich
  */
 
-#ifndef LIB_SPI_H_
-#define LIB_SPI_H_
+#ifndef SPI_H_
+#define SPI_H_
 
 #include <inttypes.h>
 
-void SPI_Init();
-void SPI_AddSlave(uint8_t ss);
-void SPI_Transmit(uint8_t ss, uint8_t *data, uint8_t quantity);
+void spiInit(void);
+void spiTransmit(uint8_t data);
 
-#endif /* LIB_SPI_H_ */
+#endif /* SPI_H_ */

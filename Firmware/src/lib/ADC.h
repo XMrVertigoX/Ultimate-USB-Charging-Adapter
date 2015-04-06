@@ -10,7 +10,7 @@
 
 #include <inttypes.h>
 
-void ADC_Init(uint8_t *adcPins);
+void adcInit(void);
 uint16_t ADC_Read(uint8_t adcPin);
 
 #endif /* LIB_ADC_H_ */

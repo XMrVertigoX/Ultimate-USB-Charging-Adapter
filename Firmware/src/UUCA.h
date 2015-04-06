@@ -9,14 +9,17 @@
 #define LIB_UUCA_H_
 
 #include <inttypes.h>
-#include <stdbool.h>
 
-#include "MCP4151.h"
+#include "lib/ADC.h"
+#include "lib/MCP4151.h"
+#include "lib/SPI.h"
 
-// Input functions
-uint16_t input_read(uint8_t device);
+#define POTI0 PB1
+#define POTI1 PB2
 
-// Output functions
-uint16_t output_read(uint8_t device);
+void init(void);
+
+void decrease(uint8_t poti);
+void increase(uint8_t poti);
 
 #endif /* LIB_UUCA_H_ */
