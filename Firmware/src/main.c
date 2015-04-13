@@ -7,19 +7,29 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#include "UUCA.h"
+#include "lib/SPI.h"
 
 // Read mode interrupt flag
 bool readMode = false;
 
 int main(void) {
-	init();
+	// Initialize SPI bus
+	spi_Init();
+
+	// Initialize SPI queue
+	spiQueue spiQueue;
+	spiQueue_Init(&spiQueue);
 
 	// TODO: Read values from eeprom
 
 	while (1) {
+		// Tranfer next SPI message if bus is ready
+		if (spi_IsReady()) {
+			spiQueue_TransferNext(&spiQueue);
+		}
+
 		if (readMode) {
-			// TODO: Neue Spannung einlesen, in eeprom und in laufzeitvariable speichern.
+			// TODO: Neue Spannung einlesen, und als ADC Values im EEPROM und in den Laufzeitvariablen speichern.
 		}
 
 		// TODO: Regelkram
