@@ -10,6 +10,7 @@
 #include "ADC.h"
 #include "Events.h"
 #include "SPI.h"
+
 #include "lib/MCP4151.h"
 
 struct {
@@ -18,14 +19,14 @@ struct {
 } flags;
 
 int main(void) {
-	// Initialize SPI bus
-	spi_Init();
+	//Initialize interrupts
+	events_Init();
 
 	// Initialize ADCs
 	adc_Init();
 
-	//Initialize interrupts
-	events_Init();
+	// Initialize SPI bus
+	spi_Init();
 
 	// TODO: Read values from eeprom
 
@@ -35,16 +36,16 @@ int main(void) {
 	// Counter
 	uint8_t i = 0;
 
-	while (true) {
+	for (;;) {
 		// Read new voltages if flag is present
 		if (flags.readMode) {
-			// TODO: Read current voltage and save in runtime and eeprom
+			// TODO: Read current voltage and save in runtime and EEPROM
 
 			// Turn off read mode when done
 			flags.readMode = false;
 		}
 
-		// TODO: Ragulator stuff
+		// TODO: Regulator stuff
 
 		if (i < 255) {
 			spi_Transfer(i, POTI0);
@@ -57,6 +58,6 @@ int main(void) {
 	cli();
 
 	// Second loop to prevent system failures
-	while (true)
+	for (;;)
 		;
 }
