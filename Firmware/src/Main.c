@@ -36,6 +36,7 @@ int main(void) {
 	// Counter
 	uint8_t i = 0;
 
+	// Infinite loop
 	for (;;) {
 		// Read new voltages if flag is present
 		if (flags.readMode) {
