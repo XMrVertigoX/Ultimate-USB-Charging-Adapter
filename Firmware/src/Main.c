@@ -28,7 +28,7 @@ int main(void) {
 	// Initialize SPI bus
 	spi_Init();
 
-	// TODO: Read values from eeprom
+	// TODO: Read values from EEPROM
 
 	// Enable interrupts
 	sei();
@@ -36,6 +36,7 @@ int main(void) {
 	// Counter
 	uint8_t i = 0;
 
+	// Infinite loop
 	for (;;) {
 		// Read new voltages if flag is present
 		if (flags.readMode) {
@@ -54,7 +55,7 @@ int main(void) {
 		}
 	}
 
-	//Disable interrupts
+	//Disable interrupts in case of system failure
 	cli();
 
 	// Second loop to prevent system failures
