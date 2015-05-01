@@ -55,7 +55,7 @@ int main(void) {
 		}
 	}
 
-	//Disable interrupts
+	//Disable interrupts in case of system failure
 	cli();
 
 	// Second loop to prevent system failures
