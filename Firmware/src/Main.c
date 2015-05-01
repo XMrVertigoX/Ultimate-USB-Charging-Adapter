@@ -28,7 +28,7 @@ int main(void) {
 	// Initialize SPI bus
 	spi_Init();
 
-	// TODO: Read values from eeprom
+	// TODO: Read values from EEPROM
 
 	// Enable interrupts
 	sei();
