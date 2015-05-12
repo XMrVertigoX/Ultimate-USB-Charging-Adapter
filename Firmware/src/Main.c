@@ -1,3 +1,5 @@
+#define debug
+
 /*
  * Main.c
  */
@@ -6,6 +8,7 @@
 #include <stdint.h>
 
 #include <avr/interrupt.h>
+#include <avr/delay.h>
 
 #include "ADC.h"
 #include "Events.h"
@@ -20,7 +23,7 @@ struct {
 
 int main(void) {
 	//Initialize interrupts
-	events_Init();
+	//events_Init();
 
 	// Initialize ADCs
 	adc_Init();
@@ -33,8 +36,8 @@ int main(void) {
 	// Enable interrupts
 	sei();
 
-	// Counter
 	uint8_t i = 0;
+	bool rising = true;
 
 	// Infinite loop
 	for (;;) {
@@ -48,10 +51,21 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
-		spi_Transfer(i, POTI0);
-		i++;
-		spi_Transfer(i, POTI1);
-		i++;
+		if (rising) {
+			spi_Transfer(MCP4151_8_INCREASE, POTI0);
+			spi_Transfer(MCP4151_8_INCREASE, POTI1);
+			i++;
+		} else {
+			spi_Transfer(MCP4151_8_DECREASE, POTI0);
+			spi_Transfer(MCP4151_8_DECREASE, POTI1);
+			i--;
+		}
+
+		if (i == 255) {
+			rising = false;
+		} else if (i == 0) {
+			rising = true;
+		}
 	}
 
 	//Disable interrupts in case of system failure

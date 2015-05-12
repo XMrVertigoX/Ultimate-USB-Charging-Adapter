@@ -11,8 +11,8 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define POTI0 PB0
-#define POTI1 PB1
+#define POTI0 PB1
+#define POTI1 PB2
 
 #define SS    PB2
 #define MOSI  PB3
