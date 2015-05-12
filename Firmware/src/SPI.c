@@ -9,7 +9,7 @@
 
 void spi_Init(void) {
 	// Set MOSI and SCK as outputs
-	DDRB |= _BV(MOSI) | _BV(SCK) | _BV(POTI0) | _BV(POTI1);
+	DDRB |= _BV(MOSI) | _BV(SCK) | _BV(SS) | _BV(POTI0) | _BV(POTI1);
 
 	// Enable master SPI at clock rate Fck/16
 	SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);

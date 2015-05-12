@@ -11,13 +11,13 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-//#define SS    PB2
+#define POTI0 PB0
+#define POTI1 PB1
+
+#define SS    PB2
 #define MOSI  PB3
 #define MISO  PB4
 #define SCK   PB5
-
-#define POTI0 PB0
-#define POTI1 PB1
 
 /**
  * Initializes all SPI related hardware.
