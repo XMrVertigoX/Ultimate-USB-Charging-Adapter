@@ -48,11 +48,10 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
-		if (i < 255) {
-			spi_Transfer(i, POTI0);
-			spi_Transfer(i, POTI1);
-			i++;
-		}
+		spi_Transfer(i, POTI0);
+		i++;
+		spi_Transfer(i, POTI1);
+		i++;
 	}
 
 	//Disable interrupts in case of system failure

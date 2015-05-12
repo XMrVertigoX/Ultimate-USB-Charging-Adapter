@@ -20,7 +20,7 @@ void spi_Init(void) {
 
 void spi_Transfer(uint8_t data, uint8_t poti) {
 	// Set SS pin low
-	PORTB &= ~_BV(poti);
+	PORTB &= ~(_BV(poti));
 
 	// Send data byte
 	SPDR = data;
