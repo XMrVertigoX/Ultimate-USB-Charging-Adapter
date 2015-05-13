@@ -19,12 +19,12 @@
 #define MISO  PB4
 #define SCK   PB5
 
-/**
+/*
  * Initializes all SPI related hardware.
  */
 void spi_Init(void);
 
-/**
+/*
  * Transfers one data byte.
  */
 void spi_Transfer(uint8_t data, uint8_t poti);

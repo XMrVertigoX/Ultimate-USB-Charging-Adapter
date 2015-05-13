@@ -1,30 +1,14 @@
-#define debug
+#include "Main.h"
 
 /*
  * Main.c
  */
 
-#include <stdbool.h>
-#include <stdint.h>
-
-#include <avr/interrupt.h>
-#include <avr/delay.h>
-
-#include "ADC.h"
-#include "Events.h"
-#include "SPI.h"
-
-#include "lib/MCP4151.h"
-
 struct {
-	// Read mode interrupt flag
-	bool readMode;
+	bool readMode; // Read mode interrupt flag
 } flags;
 
 int main(void) {
-	//Initialize interrupts
-	//events_Init();
-
 	// Initialize ADCs
 	adc_Init();
 

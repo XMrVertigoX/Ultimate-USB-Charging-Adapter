@@ -1,11 +1,11 @@
+#include "SPI.h"
+
 /*
  * SPI.c
  *
  * Created on: Mar 27, 2015
  * Author: Caspar Friedrich
  */
-
-#include "SPI.h"
 
 void spi_Init(void) {
 	// Set MOSI and SCK as outputs

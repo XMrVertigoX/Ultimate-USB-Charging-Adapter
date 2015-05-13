@@ -1,11 +1,11 @@
+#include "Events.h"
+
 /*
  * Events.c
  *
  * Created on: Apr 15, 2015
  * Author: Caspar Friedrich
  */
-
-#include "Events.h"
 
 #include <avr/io.h>
 #include <avr/interrupt.h>

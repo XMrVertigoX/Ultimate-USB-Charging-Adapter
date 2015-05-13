@@ -1,11 +1,11 @@
+#include "ADC.h"
+
 /*
  * ADC.c
  *
  * Created on: Apr 15, 2015
  * Author: Caspar Friedrich
  */
-
-#include "ADC.h"
 
 void adc_Init(void) {
 	// Enable the ADC
