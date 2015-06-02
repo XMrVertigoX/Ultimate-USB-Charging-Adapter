@@ -12,10 +12,10 @@
 
 void events_Init(void) {
 	// Turn on the Pull-up
-	PORTD |= _BV(PORTD2);
+	PORTD |= (1 << PORTD2);
 
 	// Turn on interrupt(s)
-	EIMSK |= _BV(INT0);
+	EIMSK |= (1 << INT0);
 }
 
 ISR (INT0_vect) {

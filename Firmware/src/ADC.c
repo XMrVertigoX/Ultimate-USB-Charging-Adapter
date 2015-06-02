@@ -9,18 +9,18 @@
 
 void adc_Init(void) {
 	// Enable the ADC
-	ADCSRA |= _BV(ADEN);
+	ADCSRA |= (1 << ADEN);
 }
 
 uint16_t adc_Read(uint8_t channel) {
 	// Setup conversion: Use AVCC as reference.
-	ADMUX |= _BV(REFS0) | channel;
+	ADMUX |= (1 << REFS0) | channel;
 
 	// Start the conversion
-	ADCSRA |= _BV(ADSC);
+	ADCSRA |= (1 << ADSC);
 
 	// Wait for conversion to finish
-	while ((ADCSRA & _BV(ADSC)))
+	while ((ADCSRA & (1 << ADSC)))
 		;
 
 	// Return ADC value register

@@ -9,26 +9,26 @@
 
 void spi_Init(void) {
 	// Set MOSI and SCK as outputs
-	DDRB |= _BV(MOSI) | _BV(SCK) | _BV(SS) | _BV(POTI0) | _BV(POTI1);
+	DDRB |= (1 << MOSI) | (1 << SCK) | (1 << SS) | (1 << POTI0) | (1 << POTI1);
 
 	// Enable master SPI at clock rate Fck/16
-	SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);
+	SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0);
 
 	// Set both SS lines high
-	PORTB |= _BV(POTI0) | _BV(POTI1);
+	PORTB |= (1 << POTI0) | (1 << POTI1);
 }
 
 void spi_Transfer(uint8_t data, uint8_t poti) {
 	// Set SS pin low
-	PORTB &= ~(_BV(poti));
+	PORTB &= ~((1 << poti));
 
 	// Send data byte
 	SPDR = data;
 
 	// Wait until transfer is done
-	while (!(SPSR & _BV(SPIF)))
+	while (!(SPSR & (1 << SPIF)))
 		;
 
 	// Set SS pin high
-	PORTB |= _BV(poti);
+	PORTB |= (1 << poti);
 }
