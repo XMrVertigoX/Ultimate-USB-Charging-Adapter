@@ -10,6 +10,6 @@
 
 #include <stdbool.h>
 
-void events_Init(void);
+void Events_init(void);
 
 #endif /* EVENTS_H_ */

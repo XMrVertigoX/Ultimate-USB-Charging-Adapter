@@ -7,7 +7,7 @@
  * Author: Caspar Friedrich
  */
 
-void spi_Init(void) {
+void SPI_init(void) {
 	// Set MOSI and SCK as outputs
 	DDRB |= (1 << MOSI) | (1 << SCK) | (1 << SS) | (1 << POTI0) | (1 << POTI1);
 
@@ -18,7 +18,7 @@ void spi_Init(void) {
 	PORTB |= (1 << POTI0) | (1 << POTI1);
 }
 
-void spi_Transfer(uint8_t data, uint8_t poti) {
+void SPI_transfer(uint8_t data, uint8_t poti) {
 	// Set SS pin low
 	PORTB &= ~((1 << poti));
 

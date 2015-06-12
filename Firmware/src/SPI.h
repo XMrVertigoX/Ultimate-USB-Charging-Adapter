@@ -11,8 +11,8 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define POTI0 PB1
-#define POTI1 PB2
+#define POTI0 PB0
+#define POTI1 PB1
 
 #define SS    PB2
 #define MOSI  PB3
@@ -22,11 +22,11 @@
 /*
  * Initializes all SPI related hardware.
  */
-void spi_Init(void);
+void SPI_init(void);
 
 /*
  * Transfers one data byte.
  */
-void spi_Transfer(uint8_t data, uint8_t poti);
+void SPI_transfer(uint8_t data, uint8_t poti);
 
 #endif /* SPI_H_ */

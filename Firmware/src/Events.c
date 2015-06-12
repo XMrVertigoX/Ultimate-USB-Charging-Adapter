@@ -10,7 +10,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-void events_Init(void) {
+void Events_init(void) {
 	// Turn on the Pull-up
 	PORTD |= (1 << PORTD2);
 

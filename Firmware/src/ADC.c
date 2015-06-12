@@ -7,12 +7,12 @@
  * Author: Caspar Friedrich
  */
 
-void adc_Init(void) {
+void ADC_init(void) {
 	// Enable the ADC
 	ADCSRA |= (1 << ADEN);
 }
 
-uint16_t adc_Read(uint8_t channel) {
+uint16_t ADC_read(uint8_t channel) {
 	// Setup conversion: Use AVCC as reference.
 	ADMUX |= (1 << REFS0) | channel;
 

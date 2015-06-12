@@ -14,7 +14,9 @@
 #define USART_BAUDRATE 9600
 #define BAUD_PRESCALE ((F_CPU/(USART_BAUDRATE*16UL)) - 1)
 
-void serial_Init(void);
-void serial_Write(uint8_t data);
+void Serial_init(void);
+void Serial_print(uint8_t string[]);
+void Serial_printNumeric(uint8_t value, uint8_t base);
+void Serial_write(uint8_t data);
 
 #endif /* SERIAL_H_ */

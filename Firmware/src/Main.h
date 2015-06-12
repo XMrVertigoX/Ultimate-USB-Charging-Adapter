@@ -16,6 +16,7 @@
 
 #include "ADC.h"
 #include "Events.h"
+#include "Serial.h"
 #include "SPI.h"
 
 #include "lib/MCP4151.h"

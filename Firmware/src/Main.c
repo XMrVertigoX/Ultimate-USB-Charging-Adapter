@@ -10,10 +10,13 @@ struct {
 
 int main(void) {
 	// Initialize ADCs
-	adc_Init();
+	ADC_init();
 
 	// Initialize SPI bus
-	spi_Init();
+	SPI_init();
+
+	// Initialize serial connection
+	Serial_init();
 
 	// TODO: Read values from EEPROM
 
@@ -35,13 +38,17 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
+		Serial_print("Counter: ");
+		Serial_printNumeric(i, 10);
+		Serial_print("\r\n");
+
 		if (rising) {
-			spi_Transfer(MCP4151_8_INCREASE, POTI0);
-			spi_Transfer(MCP4151_8_INCREASE, POTI1);
+			SPI_transfer(MCP4151_8_INCREASE, POTI0);
+			SPI_transfer(MCP4151_8_INCREASE, POTI1);
 			i++;
 		} else {
-			spi_Transfer(MCP4151_8_DECREASE, POTI0);
-			spi_Transfer(MCP4151_8_DECREASE, POTI1);
+			SPI_transfer(MCP4151_8_DECREASE, POTI0);
+			SPI_transfer(MCP4151_8_DECREASE, POTI1);
 			i--;
 		}
 
@@ -50,6 +57,8 @@ int main(void) {
 		} else if (i == 0) {
 			rising = true;
 		}
+
+		_delay_ms(250);
 	}
 
 	//Disable interrupts in case of system failure

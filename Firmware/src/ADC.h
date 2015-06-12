@@ -16,8 +16,8 @@
 #define ADC_OUT_A PC2
 #define ADC_OUT_B PC3
 
-void adc_Init(void);
+void ADC_init(void);
 
-uint16_t adc_Read(uint8_t channel);
+uint16_t ADC_read(uint8_t channel);
 
 #endif /* ADC_H_ */
