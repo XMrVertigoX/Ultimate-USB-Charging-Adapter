@@ -7,7 +7,9 @@
  * Author: Caspar Friedrich
  */
 
+#include <ctype.h>
 #include <math.h>
+#include <stdlib.h>
 #include <string.h>
 
 void Serial_init(void) {
@@ -26,20 +28,37 @@ void Serial_write(uint8_t data) {
 		;
 }
 
-void Serial_print(uint8_t string[]) {
+void Serial_print(char *str) {
 	int i;
 
-	for (i = 0; i < strlen(string); i++) {
-		Serial_write(string[i]);
+	for (i = 0; i < strlen(str); i++) {
+		// Print a space if char is not ascii
+		if (isascii(str[i])) {
+			Serial_write(str[i]);
+		} else {
+			Serial_write(0x20);
+		}
 	}
 }
 
-void Serial_printNumeric(uint8_t value, uint8_t base) {
-	if (value == 0) {
-		Serial_print("0");
+void Serial_println(char *str) {
+	Serial_print(str);
+	Serial_print("\r\n");
+}
+
+void Serial_printInteger(int val, uint8_t base) {
+	uint8_t digits;
+
+	if (val == 0) {
+		digits = 1;
 	} else {
-		uint8_t str[(uint8_t) log10(value) + 1];
-		itoa(value, str, base);
-		Serial_print(str);
+		digits = (uint8_t) log10(abs(val)) + 1;
 	}
+
+	// Create an empty char buffer matching the digits and add two for the terminating zero and the sign
+	char str[digits + 2];
+
+	itoa(val, str, base);
+
+	Serial_print(str);
 }

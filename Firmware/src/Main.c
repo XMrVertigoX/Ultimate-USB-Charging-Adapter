@@ -9,22 +9,22 @@ struct {
 } flags;
 
 int main(void) {
-	// Initialize ADCs
-	ADC_init();
+	// Initialize serial connection
+	Serial_init();
 
 	// Initialize SPI bus
 	SPI_init();
 
-	// Initialize serial connection
-	Serial_init();
+	// Initialize ADCs
+	ADC_init();
 
 	// TODO: Read values from EEPROM
 
 	// Enable interrupts
 	sei();
 
-	uint8_t i = 0;
-	bool rising = true;
+	int8_t i = 0;
+	//bool rising = true;
 
 	// Infinite loop
 	for (;;) {
@@ -39,10 +39,10 @@ int main(void) {
 		// TODO: Regulator stuff
 
 		Serial_print("Counter: ");
-		Serial_printNumeric(i, 10);
-		Serial_print("\r\n");
+		Serial_printInteger(i++, 10);
+		Serial_println("");
 
-		if (rising) {
+		/*if (rising) {
 			SPI_transfer(MCP4151_8_INCREASE, POTI0);
 			SPI_transfer(MCP4151_8_INCREASE, POTI1);
 			i++;
@@ -56,7 +56,7 @@ int main(void) {
 			rising = false;
 		} else if (i == 0) {
 			rising = true;
-		}
+		}*/
 
 		_delay_ms(250);
 	}
