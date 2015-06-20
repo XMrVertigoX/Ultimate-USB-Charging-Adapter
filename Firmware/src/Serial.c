@@ -36,6 +36,7 @@ void Serial_print(char *str) {
 		if (isascii(str[i])) {
 			Serial_write(str[i]);
 		} else {
+			// Write a space for every non-ascii character
 			Serial_write(0x20);
 		}
 	}
@@ -49,6 +50,7 @@ void Serial_println(char *str) {
 void Serial_printInteger(int val, uint8_t base) {
 	uint8_t digits;
 
+	// Calculate digits
 	if (val == 0) {
 		digits = 1;
 	} else {

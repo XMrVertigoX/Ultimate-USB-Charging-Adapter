@@ -23,7 +23,7 @@ int main(void) {
 	// Enable interrupts
 	sei();
 
-	int8_t i = 0;
+	//int8_t i = 0;
 	//bool rising = true;
 
 	// Infinite loop
@@ -38,8 +38,7 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
-		Serial_print("Counter: ");
-		Serial_printInteger(i++, 10);
+		Serial_printInteger(ADC_read(8), 16);
 		Serial_println("");
 
 		/*if (rising) {
