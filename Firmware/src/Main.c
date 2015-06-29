@@ -43,7 +43,7 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
-		Serial_printIntegerAndReturn(ADC_startConversion(8), 16);
+		Serial_printIntegerAndReturn(ADC_readValue(8), 16);
 
 		/*if (rising) {
 		 SPI_transfer(MCP4151_8_INCREASE, POTI0);
