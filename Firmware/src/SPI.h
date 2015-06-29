@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <avr/io.h>
+#include "util/process.h"
 
 #define POTI0 PB0
 #define POTI1 PB1
@@ -19,14 +20,7 @@
 #define MISO  PB4
 #define SCK   PB5
 
-/*
- * Initializes all SPI related hardware.
- */
-void SPI_init(void);
-
-/*
- * Transfers one data byte.
- */
-void SPI_transfer(uint8_t data, uint8_t poti);
+void SPI_initializeHardware(void);
+void SPI_transferData(uint8_t data, uint8_t chipSelect);
 
 #endif /* SPI_H_ */

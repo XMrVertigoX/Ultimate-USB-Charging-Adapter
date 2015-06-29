@@ -5,8 +5,8 @@
  * Author: Caspar Friedrich
  */
 
-#ifndef MCP4151_H_
-#define MCP4151_H_
+#ifndef LIB_MCP4151_H_
+#define LIB_MCP4151_H_
 
 #define MCP4151_8_CMD0 2
 #define MCP4151_8_CMD1 3
@@ -36,4 +36,4 @@
 #define MCP4151_16_READ     ((1 << MCP4151_16_CMD0) | (1 << MCP4151_16_CMD1))
 #define MCP4151_16_WRITE    0
 
-#endif /* MCP4151_H_ */
+#endif /* LIB_MCP4151_H_ */

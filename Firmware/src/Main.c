@@ -2,26 +2,31 @@
 
 /*
  * Main.c
+ *
+ * Created on: May 13, 2015
+ * Author: Caspar Friedrich
  */
 
 struct {
 	bool readMode; // Read mode interrupt flag
 } flags;
 
-int main(void) {
-	// Initialize serial connection
-	Serial_init();
+void initializeHardware(void) {
+	Serial_initializeHardware();
+	SPI_initializeHardware();
+	ADC_initializeHardware();
+}
 
-	// Initialize SPI bus
-	SPI_init();
-
-	// Initialize ADCs
-	ADC_init();
-
+void loadLastSystemState(void) {
 	// TODO: Read values from EEPROM
+}
 
-	// Enable interrupts
-	sei();
+int main(void) {
+	initializeHardware();
+
+	loadLastSystemState();
+
+	enableInterrupts();
 
 	//int8_t i = 0;
 	//bool rising = true;
@@ -38,30 +43,29 @@ int main(void) {
 
 		// TODO: Regulator stuff
 
-		Serial_printInteger(ADC_read(8), 16);
-		Serial_println("");
+		Serial_printIntegerAndReturn(ADC_startConversion(8), 16);
 
 		/*if (rising) {
-			SPI_transfer(MCP4151_8_INCREASE, POTI0);
-			SPI_transfer(MCP4151_8_INCREASE, POTI1);
-			i++;
-		} else {
-			SPI_transfer(MCP4151_8_DECREASE, POTI0);
-			SPI_transfer(MCP4151_8_DECREASE, POTI1);
-			i--;
-		}
+		 SPI_transfer(MCP4151_8_INCREASE, POTI0);
+		 SPI_transfer(MCP4151_8_INCREASE, POTI1);
+		 i++;
+		 } else {
+		 SPI_transfer(MCP4151_8_DECREASE, POTI0);
+		 SPI_transfer(MCP4151_8_DECREASE, POTI1);
+		 i--;
+		 }
 
-		if (i == 255) {
-			rising = false;
-		} else if (i == 0) {
-			rising = true;
-		}*/
+		 if (i == 255) {
+		 rising = false;
+		 } else if (i == 0) {
+		 rising = true;
+		 }*/
 
 		_delay_ms(250);
 	}
 
 	//Disable interrupts in case of system failure
-	cli();
+	disableInterrupts();
 
 	// Second loop to prevent system failures
 	for (;;)

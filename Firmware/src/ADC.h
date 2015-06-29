@@ -3,6 +3,8 @@
  *
  * Created on: Apr 15, 2015
  * Author: Caspar Friedrich
+ * 
+ * Module to control the ADC functionality.
  */
 
 #ifndef ADC_H_
@@ -11,20 +13,13 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define ADC_IN_A  PC0
-#define ADC_IN_B  PC1
-#define ADC_OUT_A PC2
-#define ADC_OUT_B PC3
+#include "util/process.h"
 
-/*
- * Initialize ADC functionality
- */
-void ADC_init(void);
+void ADC_initializeHardware(void);
 
-/* Convert ADC value. 10 bit precision. Results between 0x0000 and 0x03FF.
- *
- * Returns 0xFFFF if channel value is invalid
+/* 
+ * Convert analog values. 10 bit precision. Results between 0x0000 and 0x03FF. Returns 0xFC00 in case of an error
  */
-uint16_t ADC_read(uint8_t channel);
+uint16_t ADC_startConversion(uint8_t channel);
 
 #endif /* ADC_H_ */

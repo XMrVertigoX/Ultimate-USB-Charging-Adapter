@@ -7,7 +7,7 @@
  * Author: Caspar Friedrich
  */
 
-void SPI_init(void) {
+void SPI_initializeHardware(void) {
 	// Set MOSI and SCK as outputs
 	DDRB |= (1 << MOSI) | (1 << SCK) | (1 << SS) | (1 << POTI0) | (1 << POTI1);
 
@@ -18,17 +18,16 @@ void SPI_init(void) {
 	PORTB |= (1 << POTI0) | (1 << POTI1);
 }
 
-void SPI_transfer(uint8_t data, uint8_t poti) {
-	// Set SS pin low
+void SPI_transferData(uint8_t data, uint8_t poti) {
+	// Set chipSelect pin low
 	PORTB &= ~((1 << poti));
 
 	// Send data byte
 	SPDR = data;
 
 	// Wait until transfer is done
-	while (!(SPSR & (1 << SPIF)))
-		;
+	sleep(SPSR & (1 << SPIF));
 
-	// Set SS pin high
+	// Set chipSelect pin high
 	PORTB |= (1 << poti);
 }
